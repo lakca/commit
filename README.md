@@ -20,29 +20,51 @@ All trailing committed data will be merged and committed at the most end(after t
 
 ## API
 
-### `watcher.watch(properties: string|string[], callback: (newVal: object, oldVal: object, trailingCommit: function, trailingCall: function) => trailingCallFunctions: void|function|function[])`
+### `watcher.watch(properties, callback)`
 
 > watch properties with callback.
+
+- `properties`: `string|string[]`
+- `callback`:
+  - `newVal`: `object`
+  - `oldVal`: `object`
+  - `trailingCommit`: `function`
+  - `trailingCall`: `function`
+  - => `trailingCallFunctions`: `void|function|function[]`
 
 
 ### `watcher.commit(propertiesValuesObject: object)`
 
 > commit properties values.
 
+- `propertiesValuesObject`: `object`
+
 - commit properties in batch will benefit.
 
 
-### `watcher.computed(computedProperty: string, dependentPropertyerties: string[], callback: (latestValues: object) => computedPropertyValue: any)`
+### `watcher.computed(computedProperty, dependentPropertyerties, callback)`
 
 > define computed property.
 
+- `computedProperty`: `string`
+- `dependentPropertyerties`: `string[]`
+- `callback`:
+  - `latestValues`: `object`, old values merged with already computed values.
+  - => `computedPropertyValue`: `any`
+
  - **callback only executes when dependent properties were committed in `commit`.**
  - **computed property is also normal property, when it was committed in `commit`, the computing function won't execute.**
+ - **ordering of computed property defined is mattered.**
 
 
-### `watcher.computing(dependentProperty: string, callback: (latestValues: object) => computedPropertyertiesValuesObject: object)`
+### `watcher.computing(dependentProperty, callback)`
 
 > define computed properties triggered by only one property.
+
+- `dependentProperty`: `string`
+- `callback`:
+  - `latestValues`: `object`, old values merged with already computed values.
+  - => `computedPropertiesValuesObject`: `object`
 
 ### TEST
 
