@@ -1,0 +1,24 @@
+{
+  "name": "commit",
+  "version": "0.1.0",
+  "description": "watching and commit values in batch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lakca/commit.git"
+  },
+  "keywords": [
+    "watch",
+    "commit",
+    "batch"
+  ],
+  "author": "lakca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lakca/commit/issues"
+  },
+  "homepage": "https://github.com/lakca/commit#readme"
+}
